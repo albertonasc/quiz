@@ -20,6 +20,18 @@ form.addEventListener('submit', event => {
         }        
     })
 
-    finalResult.querySelector('span').textContent = `${score}%`
+    scrollTo(0, 0)
+
     finalResult.classList.remove('d-none')
+
+    let counter = 0
+
+    const timer = setInterval(() => {
+        if(counter === score) {
+            clearInterval(timer)
+        }
+
+        finalResult.querySelector('span').textContent = `${counter}%`
+        counter ++
+    }, 10)
 })
